@@ -3,4 +3,20 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <servlet>
+        <servlet-name>A</servlet-name>
+        <servlet-class>com.XieYuecong.week2.homework.HelloWorldServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>A</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>B</servlet-name>
+        <servlet-class>com.XieYuecong.week2.homework.exercise</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>B</servlet-name>
+        <url-pattern>/hi</url-pattern>
+    </servlet-mapping>
 </web-app>
