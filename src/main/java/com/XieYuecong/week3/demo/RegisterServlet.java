@@ -15,11 +15,11 @@ public class RegisterServlet extends HttpServlet {
         //String url="jdbc:sqlserver://localhost;databaseName=userdb;";
         //String username="sa";
         //String password="123456";
-        ServletConfig config=getServletConfig();
-        String driver=config.getInitParameter("driver");
-        String url=config.getInitParameter("url");
-        String username=config.getInitParameter("username");
-        String password=config.getInitParameter("password");
+        ServletContext Context=getServletContext();
+        String driver=Context.getInitParameter("driver");
+        String url=Context.getInitParameter("url");
+        String username=Context.getInitParameter("username");
+        String password=Context.getInitParameter("password");
 
         try {
             Class.forName(driver);
@@ -38,8 +38,6 @@ public class RegisterServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //response.setContentType("text/html;charset=UTF-8");
-        //request.setCharacterEncoding("UTF-8");
         PrintWriter out=response.getWriter();
         String sql ="insert into usertable(id,username,password,email,gender,birthdate)values(?,?,?,?,?,?)";
         String id=request.getParameter("id");
@@ -69,12 +67,12 @@ public class RegisterServlet extends HttpServlet {
         out.print("<html>");
         out.print("<table border='1'>");
         out.print("<tr>");
-        out.print("<td>ID</td>");
-        out.print("<td>UserName</td>");
-        out.print("<td>Password</td>");
-        out.print("<td>Email</td>");
+        out.print("<td>id</td>");
+        out.print("<td>username</td>");
+        out.print("<td>password</td>");
+        out.print("<td>email</td>");
         out.print("<td>gender</td>");
-        out.print("<td>BirthDate</td>");
+        out.print("<td>birthdate</td>");
         out.print("</tr>");
         try {
             ResultSet rs=con.createStatement().executeQuery(sql_1);

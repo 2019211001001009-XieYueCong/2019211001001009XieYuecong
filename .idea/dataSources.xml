@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="Microsoft SQL Server" uuid="5b373c81-f0bf-4bbe-9e0c-b33c1e18ba9e">
+    <data-source source="LOCAL" name="Microsoft SQL Server - userdb@localhost" uuid="223d33cb-00ae-4e7e-84e2-085b6b76fc01">
       <driver-ref>sqlserver.ms</driver-ref>
       <synchronize>true</synchronize>
-      <configured-by-url>true</configured-by-url>
       <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
-      <jdbc-url>C:\Windows\sqljdbc_9.2.1.0_chs\sqljdbc_9.2\chs</jdbc-url>
+      <jdbc-url>jdbc:sqlserver://localhost:1433;database=userdb</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

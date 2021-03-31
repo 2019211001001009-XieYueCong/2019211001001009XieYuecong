@@ -1,3 +1,4 @@
+
 package com.XieYuecong.week4.homework;
 
 import javax.servlet.http.HttpServlet;
@@ -10,9 +11,12 @@ import java.io.PrintWriter;
 public class ConfigDemoServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String name=getServletConfig().getInitParameter("name");
+        String studentid=getServletConfig().getInitParameter("studentid");
         PrintWriter writer = response.getWriter();
-        writer.println( "name: XieYuecong");
-        writer.println( "studentid: 2019211001001009");
+        writer.println("name:"+name);
+        writer.println( "studentid:"+studentid);
+
         //next we need to tell about this servlet to tomcat - how ? - web.xml
 
     }

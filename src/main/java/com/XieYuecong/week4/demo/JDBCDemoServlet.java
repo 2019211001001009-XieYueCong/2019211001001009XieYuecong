@@ -11,8 +11,8 @@ import java.sql.*;
  /*@WebServlet(
         urlPatterns  ={"/jdbc"},
         initParams = {
-                @WebInitParam(name="driver",value="com.microsoft.sqlserver.jdbc.sQlServerDriver"),
-                @WebInitParam(name="url",value="jdbc:sqlserver://localhost;databaseName=userdb;"),
+                @WebInitParam(name="driver",value="com.microsoft.sqlserver.jdbc.SQlServerDriver"),
+                @WebInitParam(name="url",value="jdbc:sqlserver://localhost:1433;databaseName=userdb;"),
                 @WebInitParam(name="username",value="sa"),
                 @WebInitParam(name="password",value="123456")
         },loadOnStartup = 1
@@ -23,10 +23,11 @@ public class JDBCDemoServlet extends HttpServlet {
     @Override
     public void init() throws ServletException{
         //connect only once
-        //String driver="com.microsoft.sqlserver.jdbc.sqlServerDriver";
+        //String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";//its SQLServerDriver
         //String url="jdbc:sqlserver://localhost;databaseName=userdb;";
         //String username="sa";
         //String password="123456";
+        //System.out.println("hello world");
         ServletConfig config=getServletConfig();
         String driver=config.getInitParameter("driver");
         String url=config.getInitParameter("url");
@@ -45,8 +46,15 @@ public class JDBCDemoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     //connect many times--bad way
-        System.out.println("I am in doGet()");
-        String sql="select *from userdb.usertable";
+
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        //print - write into response
+        String sql="select * from usertable";
         try {
             ResultSet rs=con.createStatement().executeQuery(sql);
             while(rs.next()){
@@ -55,13 +63,6 @@ public class JDBCDemoServlet extends HttpServlet {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        //print - write into response
     }
 
     @Override
