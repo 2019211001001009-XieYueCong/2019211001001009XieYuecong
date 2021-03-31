@@ -43,12 +43,12 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>exercise1</servlet-name>
+        <servlet-name>ConfigDemoServlet</servlet-name>
         <servlet-class>com.XieYuecong.week4.homework.ConfigDemoServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>exercise1</servlet-name>
+        <servlet-name>ConfigDemoServlet</servlet-name>
         <url-pattern>/config</url-pattern>
     </servlet-mapping>
 
