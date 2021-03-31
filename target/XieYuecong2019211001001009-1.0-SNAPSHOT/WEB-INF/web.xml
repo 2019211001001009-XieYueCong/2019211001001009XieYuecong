@@ -21,11 +21,11 @@
         <url-pattern>/hi</url-pattern>
     </servlet-mapping>
 
-
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>com.XieYuecong.week3.demo.RegisterServlet</servlet-class>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -36,9 +36,49 @@
         <servlet-name>LifeCycleServlet</servlet-name>
         <servlet-class>com.XieYuecong.week3.demo.LifeCycleServlet</servlet-class>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>LifeCycleServlet</servlet-name>
         <url-pattern>/life</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>exercise1</servlet-name>
+        <servlet-class>com.XieYuecong.week4.homework.exercise1</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>exercise1</servlet-name>
+        <url-pattern>/config</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>JDBCDemoServlet</servlet-name>
+        <servlet-class>com.XieYuecong.week4.demo.JDBCDemoServlet</servlet-class>
+  <init-param>
+      <param-name>driver</param-name>
+      <param-value>com.microsoft.sqlserver.jdbc.SQlServerDriver</param-value>
+  </init-param>
+  <init-param>
+      <param-name>url</param-name>
+      <param-value>jdbc:sqlserver://localhost;databaseName=userdb;</param-value>
+  </init-param>
+  <init-param>
+      <param-name>username</param-name>
+      <param-value>sa</param-value>
+  </init-param>
+  <init-param>
+      <param-name>password</param-name>
+      <param-value>123456</param-value>
+  </init-param>
+  <load-on-startup>1</load-on-startup>-->
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>JDBCDemoServlet</servlet-name>
+        <url-pattern>/jdbc</url-pattern>
+    </servlet-mapping>
+
+
 
 </web-app>

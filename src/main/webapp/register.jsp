@@ -14,12 +14,13 @@
 <h1 style="color: gray">New User Registration!</h1>
 <form method="post" action="register"> <!-- what is method when wo use form?--><!--its GET , why? default is GET,form data is added in the URL,you can see-->
     <!-- its better to use POST in form,data in not added in the URL-->
+    <input type="text" name="id" placeholder="id" style="width: 200px;height: 25px;margin-top: 2px;background-color: antiquewhite"><br/>
     <input type="text" name="username" placeholder="username" style="width: 200px;height: 25px;margin-top: 2px;background-color: antiquewhite"><br/>
     <input type="password" name="password" placeholder="password" style="width: 200px;height: 25px;margin-top: 5px;background-color: antiquewhite"><br/>
     <input type="text" name="email" placeholder="email" style="width: 200px;height: 25px;margin-top: 5px;background-color: antiquewhite"><br/>
     Gender <input type="radio" name="gender" value="male">Male
     <input type="radio" name="gender" value="female">Female<br/>
-    <input type="text" name="birthDate" placeholder="Date of Birth(yyyy-mm-dd)" style="width: 200px;height: 25px;margin-top: 5px;margin-bottom: 5px;background-color: antiquewhite"><br/>
+    <input type="text" name="birthdate" placeholder="Date of Birth(yyyy-mm-dd)" style="width: 200px;height: 25px;margin-top: 5px;margin-bottom: 5px;background-color: antiquewhite"><br/>
     <input type="submit" value="register" style="background-color:#ffa500;color: white;width: 100px;height: 25px;text-align: center;font-size: 15px">
 </form>
 

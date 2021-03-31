@@ -2,6 +2,9 @@
   <library name="servlet-api">
     <CLASSES>
       <root url="jar://D:/文件/software/apache-tomcat-8.5.63/apache-tomcat-8.5.63/lib/servlet-api.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/sqljdbc42.jar!/" />
+      <root url="jar://D:/文件/software/apache-tomcat-8.5.63/apache-tomcat-8.5.63/lib/tomcat-jdbc.jar!/" />
+      <root url="jar://D:/文件/software/apache-tomcat-8.5.63/apache-tomcat-8.5.63/lib/mssql-jdbc-9.2.1.jre11(2).jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

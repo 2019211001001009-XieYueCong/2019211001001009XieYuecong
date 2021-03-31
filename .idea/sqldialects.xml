@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="jar://$USER_HOME$/Desktop/sqljdbc_9.2.1.0_chs.zip!/sqljdbc_9.2/chs/mssql-jdbc-9.2.1.jre8.jar" dialect="TSQL" />
+    <file url="PROJECT" dialect="TSQL" />
+  </component>
+  <component name="SqlResolveMappings">
+    <file url="file://$PROJECT_DIR$/src/main/java/com/XieYuecong/week3/demo/RegisterServlet.java" scope="{&quot;node&quot;:{  &quot;@negative&quot;:&quot;1&quot;,  &quot;group&quot;:{   &quot;@kind&quot;:&quot;root&quot;,   &quot;node&quot;:{    &quot;name&quot;:{     &quot;@qname&quot;:&quot;5b373c81-f0bf-4bbe-9e0c-b33c1e18ba9e&quot;    }   }  } }}" />
+    <file url="PROJECT" scope="{&quot;node&quot;:{  &quot;@negative&quot;:&quot;1&quot;,  &quot;group&quot;:{   &quot;@kind&quot;:&quot;root&quot;,   &quot;node&quot;:{    &quot;name&quot;:{     &quot;@qname&quot;:&quot;5b373c81-f0bf-4bbe-9e0c-b33c1e18ba9e&quot;    }   }  } }}" />
+  </component>
+</project>

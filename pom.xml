@@ -16,6 +16,7 @@
         <junit.version>5.7.0</junit.version>
     </properties>
 
+
     <dependencies>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -35,6 +36,13 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>8.4.1.jre11</version>
+        </dependency>
+
     </dependencies>
 
     <build>
