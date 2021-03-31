@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 
 //now its just a java class
 //extend HttpServlet
-public class exercise1 extends HttpServlet {
+public class ConfigDemoServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         PrintWriter writer = response.getWriter();
