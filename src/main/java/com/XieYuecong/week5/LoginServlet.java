@@ -50,7 +50,7 @@ public class LoginServlet extends HttpServlet {
             if (rs.next()){
                 System.out.println(rs.getString(2)+ " "+ rs.getString(3));
                 out.println("Login Success!!!" );
-                out.println("Welcome,XieYuecong" );
+                out.println("Welcome,"+username);
             }
             else
                 out.println("Username or Password Error!!!");
