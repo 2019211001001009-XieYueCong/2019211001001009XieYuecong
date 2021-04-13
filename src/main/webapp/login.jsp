@@ -11,13 +11,14 @@
 <%
     if (!(request.getAttribute("message")==null)){
         //error
-        out.println(request.getAttribute("message"));
-    }
+        out.println(request.getAttribute("message"));}
+
 %>
 <form method="post"  action="login">
     UserName:<input type="text" name="UserName"><br/>
     Password:<input type="text" name="Password"><br/>
     <input type="submit" value="login"/>
 </form>
+
 <%@include file="footer.jsp"%>
 

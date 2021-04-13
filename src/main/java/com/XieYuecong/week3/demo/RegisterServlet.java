@@ -48,8 +48,8 @@ public class RegisterServlet extends HttpServlet {
         try{
             Statement st=con.createStatement();
             String sql="insert into usertable(id,username,password,email,gender,birthdate)"+
-                    "values(' "+id+"','"+username+"',' "+password+"',' "+email+"',' "+gender+"',' "+birthdate+"')";
-            System.out.println("sql"+sql);
+                    "values('"+id+"','"+username+"','"+password+"','"+email+"','"+gender+"','"+birthdate+"')";
+            System.out.println("sql:"+sql);
 
             int n=st.executeUpdate(sql);
             System.out.println("n-->"+n);
