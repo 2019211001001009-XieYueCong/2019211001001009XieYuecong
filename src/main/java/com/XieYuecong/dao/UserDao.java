@@ -15,12 +15,12 @@ public class UserDao implements IUserDao{
         //insert ...into usertable
         String sql="insert into usertable (id,username,password,email,gender,birthdate) values(?,?,?,?,?,?)";
         PreparedStatement st=con.prepareStatement(sql);
-        //st.setInt(1,id);
-        //st.setString(2,username);
-        //st.setString(3,password);
-        //st.setString(4,email);
-        //st.setString(5,gender);
-        // st.setString(6,birthdate);
+        st.setInt(1,user.getId());
+        st.setString(2, user.getUsername());
+        st.setString(3, user.getPassword());
+        st.setString(4, user.getEmail());
+        st.setString(5, user.getGender());
+        st.setDate(6, (java.sql.Date) user.getBirthDate());
         ResultSet rs=st.executeQuery();
        if(rs.next()){
            user=new User();
@@ -41,7 +41,7 @@ public class UserDao implements IUserDao{
         //delete...where id=?
         String sql="delete from usertable where id=?";
         PreparedStatement st=con.prepareStatement(sql);
-        //st.setInt(1,id);
+        st.setInt(1,user.getId());
         ResultSet rs=st.executeQuery();
         if(rs.next()){
             user=new User();
@@ -60,13 +60,13 @@ public class UserDao implements IUserDao{
         //update...where id=?
         String sql="update usertable set id=? and username=? and password=? and email=? and gender=? and birthdate=?  where id=?";
         PreparedStatement st=con.prepareStatement(sql);
-        //st.setInt(1,id);
-        //st.setString(2,username);
-        //st.setString(3,password);
-        //st.setString(4,email);
-        //st.setString(5,gender);
-        // st.setString(6,birthdate);
-        //st.setInt(7,id);
+        st.setInt(1,user.getId());
+        st.setString(2, user.getUsername());
+        st.setString(3, user.getPassword());
+        st.setString(4, user.getEmail());
+        st.setString(5, user.getGender());
+        st.setDate(6, (java.sql.Date) user.getBirthDate());
+        st.setInt(7,user.getId());
         ResultSet rs=st.executeQuery();
         if(rs.next()){
             user=new User();
@@ -85,7 +85,7 @@ public class UserDao implements IUserDao{
         //select ---where id=?
         String sql="select * from usertable where id=?";
         PreparedStatement st=con.prepareStatement(sql);
-        //st.setInt(1,id);
+        st.setInt(1,id);
         ResultSet rs=st.executeQuery();
         User user=null;
         if(rs.next()){
