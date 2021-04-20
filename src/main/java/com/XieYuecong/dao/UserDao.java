@@ -15,7 +15,7 @@ public class UserDao implements IUserDao{
         //insert ...into usertable
         String sql="insert into usertable (id,username,password,email,gender,birthdate) values(?,?,?,?,?,?)";
         PreparedStatement st=con.prepareStatement(sql);
-        //st.setString(1,id);
+        //st.setInt(1,id);
         //st.setString(2,username);
         //st.setString(3,password);
         //st.setString(4,email);
@@ -41,7 +41,7 @@ public class UserDao implements IUserDao{
         //delete...where id=?
         String sql="delete from usertable where id=?";
         PreparedStatement st=con.prepareStatement(sql);
-        //st.setString(1,id);
+        //st.setInt(1,id);
         ResultSet rs=st.executeQuery();
         if(rs.next()){
             user=new User();
@@ -60,6 +60,13 @@ public class UserDao implements IUserDao{
         //update...where id=?
         String sql="update usertable set id=? and username=? and password=? and email=? and gender=? and birthdate=?  where id=?";
         PreparedStatement st=con.prepareStatement(sql);
+        //st.setInt(1,id);
+        //st.setString(2,username);
+        //st.setString(3,password);
+        //st.setString(4,email);
+        //st.setString(5,gender);
+        // st.setString(6,birthdate);
+        //st.setInt(7,id);
         ResultSet rs=st.executeQuery();
         if(rs.next()){
             user=new User();
@@ -78,6 +85,7 @@ public class UserDao implements IUserDao{
         //select ---where id=?
         String sql="select * from usertable where id=?";
         PreparedStatement st=con.prepareStatement(sql);
+        //st.setInt(1,id);
         ResultSet rs=st.executeQuery();
         User user=null;
         if(rs.next()){
@@ -119,6 +127,7 @@ public class UserDao implements IUserDao{
     public List<User> findByUsername(Connection con, String username) throws SQLException {
         String sql="select * from usertable where username=?";
         PreparedStatement st=con.prepareStatement(sql);
+        //st.setString(1,username);
         ResultSet rs=st.executeQuery();
         User user=null;
         if(rs.next()){
@@ -130,7 +139,6 @@ public class UserDao implements IUserDao{
             user.setGender(rs.getString("gender"));
             user.setBirthDate(rs.getDate("birthdate"));
         }
-
         return (List<User>) user;
     }
 
@@ -138,6 +146,7 @@ public class UserDao implements IUserDao{
     public List<User> findByPassword(Connection con, String password) throws SQLException {
         String sql="select * from usertable where password=?";
         PreparedStatement st=con.prepareStatement(sql);
+        //st.setString(1,password);
         ResultSet rs=st.executeQuery();
         User user=null;
         if(rs.next()){
@@ -149,7 +158,6 @@ public class UserDao implements IUserDao{
             user.setGender(rs.getString("gender"));
             user.setBirthDate(rs.getDate("birthdate"));
         }
-
         return (List<User>) user;
     }
 
@@ -157,6 +165,7 @@ public class UserDao implements IUserDao{
     public List<User> findByEmail(Connection con, String email) throws SQLException {
         String sql="select * from usertable where email=?";
         PreparedStatement st=con.prepareStatement(sql);
+        //st.setString(1,email);
         ResultSet rs=st.executeQuery();
         User user=null;
         if(rs.next()){
@@ -168,7 +177,6 @@ public class UserDao implements IUserDao{
             user.setGender(rs.getString("gender"));
             user.setBirthDate(rs.getDate("birthdate"));
         }
-
         return (List<User>) user;
     }
 
@@ -176,6 +184,7 @@ public class UserDao implements IUserDao{
     public List<User> findByGender(Connection con, String gender) throws SQLException {
         String sql="select * from usertable where gender=?";
         PreparedStatement st=con.prepareStatement(sql);
+        //st.setString(1,gender);
         ResultSet rs=st.executeQuery();
         User user=null;
         if(rs.next()){
@@ -187,7 +196,6 @@ public class UserDao implements IUserDao{
             user.setGender(rs.getString("gender"));
             user.setBirthDate(rs.getDate("birthdate"));
         }
-
         return (List<User>) user;
     }
 
@@ -195,6 +203,7 @@ public class UserDao implements IUserDao{
     public List<User> findByBirthdate(Connection con, Date birthDate) throws SQLException {
         String sql="select * from usertable where birthdate=?";
         PreparedStatement st=con.prepareStatement(sql);
+        //st.setString(1,birthdate);
         ResultSet rs=st.executeQuery();
         User user=null;
         if(rs.next()){
@@ -206,7 +215,6 @@ public class UserDao implements IUserDao{
             user.setGender(rs.getString("gender"));
             user.setBirthDate(rs.getDate("birthdate"));
         }
-
         return (List<User>) user;
     }
 
@@ -226,7 +234,6 @@ public class UserDao implements IUserDao{
             user.setGender(rs.getString("gender"));
             user.setBirthDate(rs.getDate("birthdate"));
         }
-
         return (List<User>) user;
     }
 }
