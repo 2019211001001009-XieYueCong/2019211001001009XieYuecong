@@ -45,8 +45,8 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         //String id=request.getParameter("Id");
-        String username = request.getParameter("UserName");
-        String password = request.getParameter("Password");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
         //String email=request.getParameter("Email");
         //String gender=request.getParameter("Gender");
         //String birthdate=request.getParameter("BirthDate");
@@ -55,8 +55,31 @@ public class LoginServlet extends HttpServlet {
         try {
             User user=userDao.findByUsernamePassword(con,username,password);
             if(user!=null){
+                String rememberMe=request.getParameter("rememberMe");
+                if(rememberMe!=null && rememberMe.equals("1")){
+                    //create 3 cookies
+                    Cookie usernameCookie=new Cookie("cUsername",user.getUsername());
+                    Cookie passwordCookie=new Cookie("cPassword",user.getPassword());
+                    Cookie rememberMeCookie=new Cookie("cRememberMe",rememberMe);
+                    //set age of cookies
+                    usernameCookie.setMaxAge(5);
+                    passwordCookie.setMaxAge(5);
+                    rememberMeCookie.setMaxAge(5);
+                    //add cookies into response
+                    response.addCookie(usernameCookie);
+                    response.addCookie(passwordCookie);
+                    response.addCookie(rememberMeCookie);
+
+                }
                 //有效的
-                request.setAttribute("user",user);//set user into request
+                //Cookie c=new Cookie("sessionid",""+user.getId());
+                //c.setMaxAge(10*60);
+                //response.addCookie(c);
+                HttpSession session=request.getSession();
+                System.out.println("Session id-->"+session.getId());
+                session.setMaxInactiveInterval(30);
+
+                session.setAttribute("user",user);//set user into request
                 request.getRequestDispatcher("WEB-INF/views/userInfo.jsp").forward(request,response);
             }else{//无效的
                 request.setAttribute("message","Username or Password Error!!!");
