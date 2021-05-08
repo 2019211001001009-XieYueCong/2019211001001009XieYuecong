@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="Microsoft SQL Server - userdb@localhost">
-  <database-model serializer="dbm" dbms="MSSQL" family-id="MSSQL" format-version="4.20">
+  <database-model serializer="dbm" dbms="MSSQL" family-id="MSSQL" format-version="4.21">
     <root id="1">
       <ServerVersion>15.0.2000</ServerVersion>
       <PermissionsCheckSum>9477402955</PermissionsCheckSum>
-      <Grants>0|root||1|connect sql|G
-0|root||2|view any database|G
-0|root||272|connect sql|G
+      <Grants>-9223372036854775808|||-9223372036854775808||G
 2|||2|connect|G
 3|||2|connect|G
 4|||2|connect|G
 5|||2|connect|G
-</Grants>
+0|root||1|connect sql|G
+0|root||272|connect sql|G
+0|root||2|view any database|G</Grants>
     </root>
     <database id="2" parent="1" name="Book_Reader_DB20200110">
       <ObjectId>5</ObjectId>
@@ -48,12 +48,12 @@
     <database id="10" parent="1" name="userdb">
       <ObjectId>9</ObjectId>
       <PermissionsCheckSum>5314273712</PermissionsCheckSum>
-      <Grants>9|database||0|view any column encryption key definition|G
-9|database||0|view any column master key definition|G
+      <Grants>-9223372036854775808|||-9223372036854775808||G
 9|database||1|connect|G
 9|database||5|connect|G
 9|database||6|connect|G
-</Grants>
+9|database||0|view any column encryption key definition|G
+9|database||0|view any column master key definition|G</Grants>
       <Current>1</Current>
       <Collation>Chinese_PRC_CI_AS</Collation>
       <Fingerprint>9.44275/D954B654-39A6-4568-9378-B831A43CF0D9@LAPTOP-HN24C87C</Fingerprint>
@@ -344,6 +344,7 @@
     </role>
     <table id="69" parent="49" name="usertable">
       <ObjectId>581577110</ObjectId>
+      <Outdated>1</Outdated>
       <CreatedTimestamp>2021-03-21.21:06:30.957</CreatedTimestamp>
       <ModifiedTimestamp>2021-03-21.21:06:30.967</ModifiedTimestamp>
     </table>
