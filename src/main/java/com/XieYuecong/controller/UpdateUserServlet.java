@@ -23,7 +23,6 @@ public class UpdateUserServlet extends HttpServlet {
     public void init() throws ServletException{
         super.init();
         con=(Connection) getServletContext().getAttribute("con");
-
     }
 
     @Override
