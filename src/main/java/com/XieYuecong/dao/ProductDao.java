@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDao implements  IProductDao{
@@ -36,34 +37,75 @@ public class ProductDao implements  IProductDao{
     @Override
     public int delete(Integer productId, Connection con) throws SQLException {
         Product product=null;
-        String sql="delete from Product where prouctId=?";
+        String sql="delete from product where ProuctId=?";
         PreparedStatement st=con.prepareStatement(sql);
         st.setInt(1,product.getProductId());
         ResultSet rs=st.executeQuery();
         if(rs.next()){
             product=new Product();
-            product.setProductId(rs.getInt("productId"));
-            product.setProductName(rs.getString("productName"));
-            product.setProductDescription(rs.getString("productDescription"));
+            product.setProductId(rs.getInt("ProductId"));
+            product.setProductName(rs.getString("ProductName"));
+            product.setProductDescription(rs.getString("ProductDescription"));
             product.setPicture(rs.getBinaryStream("picture"));
-            product.setPrice(rs.getDouble("picture"));
-            product.setCategoryId(rs.getInt("category"));
+            product.setPrice(rs.getDouble("price"));
+            product.setCategoryId(rs.getInt("Category"));
         }
         return 0;
     }
 
     @Override
-    public int update(Product instance, Connection con) {
+    public int update(Product instance, Connection con) throws SQLException {
+        String sql = "update product set ProductName=? , ProductDescription=? , picture=? , price=? , CategoryId=?  where ProductId=?";
+        PreparedStatement st = con.prepareStatement(sql);
+        st.setString(1, instance.getProductName());
+        st.setString(2, instance.getProductDescription());
+        st.setBinaryStream(3, instance.getPicture());
+        st.setDouble(4, instance.getPrice());
+        st.setInt(5,instance.getCategoryId());
+        st.setInt(6,instance.getProductId());
+        st.executeUpdate();
+        if (st.executeUpdate() > 0) {
+            return 1;
+        }
         return 0;
+
     }
 
     @Override
-    public Product findById(Integer productId, Connection con) {
+    public Product findById(Integer productId, Connection con) throws SQLException {
+        String sql = "select*from product where ProductId=?";
+        PreparedStatement pt = con.prepareStatement(sql);
+        pt.setInt(1,productId);
+        ResultSet rs=pt.executeQuery();
+        if (rs.next()){
+            Product product=new Product();
+            product.setProductName(rs.getString("ProductName"));
+            product.setProductDescription(rs.getString("ProductDescription"));
+            product.setPicture(rs.getBinaryStream("picture"));
+            product.setPrice(rs.getDouble("price"));
+            product.setCategoryId(rs.getInt("CategoryId"));
+            return product;
+        }
         return null;
     }
 
     @Override
-    public List<Product> findByCategoryId(int categoryId, Connection con) {
+    public List<Product> findByCategoryId(int categoryId, Connection con) throws SQLException {
+        String sql = "select*from product where categoryId=?";
+        PreparedStatement pt = con.prepareStatement(sql);
+        pt.setInt(1,categoryId);
+        ResultSet rs=pt.executeQuery();
+        List<Product> list=new ArrayList<>();
+        while (rs.next()){
+            Product product=new Product();
+            product.setProductName(rs.getString("ProductName"));
+            product.setProductDescription(rs.getString("ProductDescription"));
+            product.setPicture(rs.getBinaryStream("picture"));
+            product.setPrice(rs.getDouble("price"));
+            product.setCategoryId(rs.getInt("CategoryId"));
+            list.add(product);
+            return list;
+        }
         return null;
     }
 
