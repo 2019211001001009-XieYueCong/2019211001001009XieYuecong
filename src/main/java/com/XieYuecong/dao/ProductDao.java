@@ -111,17 +111,61 @@ public class ProductDao implements  IProductDao{
 
     @Override
     public List<Product> findByPrice(double minPrice, double maxPrice, Connection con) throws SQLException {
+        String sql = "select *from product where price>=? and price<=?";
+        PreparedStatement pt = con.prepareStatement(sql);
+        pt.setDouble(1,minPrice);
+        pt.setDouble(2,maxPrice);
+        ResultSet rs=pt.executeQuery();
+        List<Product> list=new ArrayList<>();
+        while (rs.next()){
+            Product product=new Product();
+            product.setProductName(rs.getString("ProductName"));
+            product.setProductDescription(rs.getString("ProductDescription"));
+            product.setPicture(rs.getBinaryStream("picture"));
+            product.setPrice(rs.getDouble("price"));
+            product.setCategoryId(rs.getInt("CategoryId"));
+            list.add(product);
+            return list;
+        }
         return null;
     }
 
     @Override
     public List<Product> findAll(Connection con) throws SQLException {
-
+        String sql = "select*from product";
+        PreparedStatement pt = con.prepareStatement(sql);
+        ResultSet rs=pt.executeQuery();
+        List<Product> list=new ArrayList<>();
+        while (rs.next()){
+            Product product=new Product();
+            product.setProductName(rs.getString("ProductName"));
+            product.setProductDescription(rs.getString("ProductDescription"));
+            product.setPicture(rs.getBinaryStream("picture"));
+            product.setPrice(rs.getDouble("price"));
+            product.setCategoryId(rs.getInt("CategoryId"));
+            list.add(product);
+            return list;
+        }
         return null;
     }
 
     @Override
     public List<Product> findByProductName(String productName, Connection con) throws SQLException {
+        String sql = "select*from product where ProductName=?";
+        PreparedStatement pt = con.prepareStatement(sql);
+        pt.setString(1,productName);
+        ResultSet rs=pt.executeQuery();
+        List<Product> list=new ArrayList<>();
+        while (rs.next()){
+            Product product=new Product();
+            product.setProductName(rs.getString("ProductName"));
+            product.setProductDescription(rs.getString("ProductDescription"));
+            product.setPicture(rs.getBinaryStream("picture"));
+            product.setPrice(rs.getDouble("price"));
+            product.setCategoryId(rs.getInt("CategoryId"));
+            list.add(product);
+            return list;
+        }
         return null;
     }
 
