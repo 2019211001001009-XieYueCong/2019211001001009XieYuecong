@@ -4,10 +4,7 @@ import com.XieYuecong.model.Product;
 import com.XieYuecong.model.User;
 
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,40 +70,41 @@ public class ProductDao implements  IProductDao{
 
     @Override
     public Product findById(Integer productId, Connection con) throws SQLException {
-        String sql = "select*from product where ProductId=?";
+        String sql = "select*from Product where ProductId=?";
         PreparedStatement pt = con.prepareStatement(sql);
         pt.setInt(1,productId);
         ResultSet rs=pt.executeQuery();
+        Product product=new Product();
         if (rs.next()){
-            Product product=new Product();
+
+            product.setProductId(rs.getInt("ProductId"));
             product.setProductName(rs.getString("ProductName"));
             product.setProductDescription(rs.getString("ProductDescription"));
-            product.setPicture(rs.getBinaryStream("picture"));
             product.setPrice(rs.getDouble("price"));
-            product.setCategoryId(rs.getInt("CategoryId"));
-            return product;
+            product.setCategoryId(rs.getInt("CategoryID"));
+
         }
-        return null;
+        return product;
     }
 
     @Override
     public List<Product> findByCategoryId(int categoryId, Connection con) throws SQLException {
-        String sql = "select*from product where categoryId=?";
+        List<Product> list=new ArrayList<Product>();
+        String sql = "select*from Product where categoryId=?";
         PreparedStatement pt = con.prepareStatement(sql);
         pt.setInt(1,categoryId);
         ResultSet rs=pt.executeQuery();
-        List<Product> list=new ArrayList<>();
         while (rs.next()){
             Product product=new Product();
+            product.setProductId(rs.getInt("ProductId"));
             product.setProductName(rs.getString("ProductName"));
             product.setProductDescription(rs.getString("ProductDescription"));
-            product.setPicture(rs.getBinaryStream("picture"));
             product.setPrice(rs.getDouble("price"));
-            product.setCategoryId(rs.getInt("CategoryId"));
+            product.setCategoryId(rs.getInt("CategoryID"));
             list.add(product);
-            return list;
+
         }
-        return null;
+        return list;
     }
 
     @Override
@@ -132,21 +130,27 @@ public class ProductDao implements  IProductDao{
 
     @Override
     public List<Product> findAll(Connection con) throws SQLException {
+        List<Product> list=new ArrayList<Product>();
+        try{
         String sql = "select*from product";
         PreparedStatement pt = con.prepareStatement(sql);
         ResultSet rs=pt.executeQuery();
-        List<Product> list=new ArrayList<>();
-        while (rs.next()){
-            Product product=new Product();
+        while (rs.next()) {
+            Product product = new Product();
+            product.setProductId(rs.getInt("ProductId"));
             product.setProductName(rs.getString("ProductName"));
             product.setProductDescription(rs.getString("ProductDescription"));
-            product.setPicture(rs.getBinaryStream("picture"));
+            //product.setPicture(rs.getBinaryStream("picture"));
             product.setPrice(rs.getDouble("price"));
-            product.setCategoryId(rs.getInt("CategoryId"));
+            product.setCategoryId(rs.getInt("CategoryID"));
             list.add(product);
-            return list;
         }
-        return null;
+        System.out.println("successful");
+        }catch(SQLException e){
+            e.printStackTrace();
+            }
+         return  list;
+
     }
 
     @Override
@@ -172,5 +176,17 @@ public class ProductDao implements  IProductDao{
     @Override
     public List<Product> getPicture(Integer productId, Connection con) throws SQLException {
         return null;
+    }
+    public  byte[] getPictureById(Integer productId,Connection con) throws SQLException {
+        byte[] imgBytes=null;
+        String sql="select picture from product where productId=?";
+        PreparedStatement pt=con.prepareStatement(sql);
+        pt.setInt(1,productId);
+        ResultSet rs=pt.executeQuery();
+        while(rs.next()){
+            Blob blob=rs.getBlob("picture");
+            imgBytes=blob.getBytes(1,(int)blob.length());
+        }
+        return imgBytes;
     }
 }
