@@ -40,9 +40,9 @@
 <%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="header.jsp"%>
 <h1>Login</h1>
-<form method="post"  action="login">
+<form method="post"  action="Login">
     UserName:<input type="text" name="UserName"><br/>
     Password:<input type="text" name="Password"><br/>
-    <input type="submit" value="login"/>
+    <input type="submit" value="Login"/>
 </form>
 <%@include file="footer.jsp"%>--%>

@@ -31,7 +31,7 @@
     <orderEntry type="library" name="apache-tomcat-8.5" level="project" />
     <orderEntry type="library" name="apiguardian-api-1.1.0" level="project" />
     <orderEntry type="library" name="junit-jupiter-api-5.7.0" level="project" />
-    <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" exported="" name="lib" level="project" />
     <orderEntry type="library" name="mssql-jdbc-9.2.1.jre11" level="project" />
     <orderEntry type="library" name="servlet-api" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:4.0.1" level="project" />

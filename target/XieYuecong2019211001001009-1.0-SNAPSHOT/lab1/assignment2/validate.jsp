@@ -19,7 +19,7 @@ if(request.getParameter("username").equals("admin") && request.getParameter("pas
     response.sendRedirect(url);
 }else{
     request.setAttribute("message","Username Password Error");
-    request.getRequestDispatcher("login.jsp").include(request,response);
+    request.getRequestDispatcher("Login.jsp").include(request,response);
 }
 --%>
 <%--todo 2: use c:choose ,c:when c:otherwise to validate username is 'admin' and  password is 'admin'--%>
@@ -36,7 +36,7 @@ if(request.getParameter("username").equals("admin") && request.getParameter("pas
     <c:otherwise>
         <%-- todo 6:use c:set to set a attribute name message="username password error" in request  --%>
         <c:set var="message" value="username password error" scope="request"/>
-        <%--todo 7:use c:import to include login.jsp --%>
+        <%--todo 7:use c:import to include Login.jsp --%>
         <c:import url="login.jsp"/>
     </c:otherwise>
 </c:choose>

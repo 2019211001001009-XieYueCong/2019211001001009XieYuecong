@@ -40,8 +40,8 @@ public class CartServlet extends HttpServlet {
                 remove(request,response);
             }
         }else{
-            //no login
-            response.sendRedirect("login");
+            //no Login
+            response.sendRedirect("Login");
         }
     }
 

@@ -7,7 +7,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-4 col-sm-offset-1">
-					<div class="login-form"><!--login form-->
+					<div class="login-form"><!--Login form-->
 						<h2>Update User Info</h2>
 <% if(!(request.getAttribute("user")==null)){
     

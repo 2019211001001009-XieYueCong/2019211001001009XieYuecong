@@ -6,7 +6,7 @@ import java.io.IOException;
 
 @WebFilter(filterName = "HelloFilter"
         //,urlPatterns = {"/hello"}
-        //,urlPatterns = {"/home","/login","/register.jsp"}
+        //,urlPatterns = {"/home","/Login","/register.jsp"}
           ,urlPatterns = {"/*"}
 )
 public class HelloFilter implements Filter {
