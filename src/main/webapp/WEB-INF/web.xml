@@ -160,7 +160,7 @@
     <filter-mapping>
         <filter-name>YourNameFilter</filter-name>
         <url-pattern>/lab2/welcome.jsp</url-pattern>
-        <url-pattern>/lab2/validation.jsp</url-pattern>
+        <url-pattern>/lab2/validate.jsp</url-pattern>
     </filter-mapping>
 
 
