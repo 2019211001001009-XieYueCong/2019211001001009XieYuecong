@@ -43,7 +43,7 @@ public class AccountDetailsServlet extends HttpServlet {
             request.getRequestDispatcher(path).forward(request,response);
 
         }else{
-            response.sendRedirect("Login");
+            response.sendRedirect("login");
         }
 
     }

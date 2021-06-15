@@ -41,7 +41,7 @@ public class CartServlet extends HttpServlet {
             }
         }else{
             //no Login
-            response.sendRedirect("Login");
+            response.sendRedirect("login");
         }
     }
 

@@ -5,14 +5,13 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "LogoutServlet", value = "/logout")
-public class LogoutServlet extends HttpServlet {
+@WebServlet("/contactUs")
+public class ContactUsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //false means get exiting session
-        request.getSession(false).invalidate();//kill session right now
-        request.setAttribute("message","you have successfully Logged out.");
-        request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request,response);
+        String path="/WEB-INF/views/contactUs.jsp";
+        request.getRequestDispatcher(path).forward(request,response);
+
     }
 
     @Override

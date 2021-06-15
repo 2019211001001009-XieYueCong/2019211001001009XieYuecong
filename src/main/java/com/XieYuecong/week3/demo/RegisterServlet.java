@@ -63,7 +63,7 @@ public class RegisterServlet extends HttpServlet {
             //request.setAttribute("rsname",rs);
 
             //request.getRequestDispatcher("userList.jsp").forward(request,response);//请求转发
-            response.sendRedirect("Login");
+            response.sendRedirect("login");
             //System.out.println("I am in RegisterServlet-->doPost()-->after forward()");
         } catch (SQLException throwables) {
             throwables.printStackTrace();

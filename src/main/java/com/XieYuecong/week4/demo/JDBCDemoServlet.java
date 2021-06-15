@@ -18,7 +18,8 @@ import java.sql.*;
         },loadOnStartup = 1
 )*/
 
-public class JDBCDemoServlet extends HttpServlet {
+public class
+JDBCDemoServlet extends HttpServlet {
     Connection con=null;
     @Override
     public void init() throws ServletException{
